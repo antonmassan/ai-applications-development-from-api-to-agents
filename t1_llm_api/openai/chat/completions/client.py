@@ -56,8 +56,7 @@ class OpenAIClient(BaseOpenAIClient):
      
         # 0. Make a request in Postman to see the request and response
         messages_dicts = [
-            {"role": Role.SYSTEM.value, "content": self._system_prompt},
-            *[message.to_dict() for message in messages],
+            {"role": Role.SYSTEM.value, "content": self._system_prompt},*[message.to_dict() for message in messages],
         ]
         completion = self._client.chat.completions.create(
             model=self._model_name,
